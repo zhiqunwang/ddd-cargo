@@ -1,5 +1,8 @@
 package com.deepoove.cargo.domain.aggregate.cargo.valueobject;
 
+/**
+ * 起始目的地【值对象】
+ */
 public class DeliverySpecification {
 
     private String originLocationCode;

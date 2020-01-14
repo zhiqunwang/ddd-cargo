@@ -2,17 +2,17 @@ package com.deepoove.cargo.application.cmd;
 
 public class CargoBookCommand {
 
-    private String senderId;
+    private String senderPhone;
     private String description;
     private String originLocationCode;
     private String destinationLocationCode;
 
-    public String getSenderId() {
-        return senderId;
+    public String getSenderPhone() {
+        return senderPhone;
     }
 
-    public void setSenderId(String senderId) {
-        this.senderId = senderId;
+    public void setSenderPhone(String senderPhone) {
+        this.senderPhone = senderPhone;
     }
 
     public String getDescription() {

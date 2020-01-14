@@ -1,15 +1,19 @@
 package com.deepoove.cargo.domain.aggregate.cargo;
 
+import com.deepoove.cargo.domain.aggregate.cargo.valueobject.EnterpriseSegment;
+
 import java.util.List;
 
 public interface CargoRepository {
 
     Cargo find(String id);
 
-    List<Cargo> findByCustomerId(String customerId);
+    int sizeByCustomer(String customerPhone);
 
-    List<Cargo> findAll();
+    int sizeByEnterpriseSegment(EnterpriseSegment enterpriseSegment);
 
     void save(Cargo cargo);
+
+    void remove(String id);
 
 }

@@ -2,14 +2,14 @@ package org.deepoove.cargo.query.qry;
 
 public class CargoFindbyCustomerQry {
 
-    private String customerId;
+    private String customerPhone;
 
-    public String getCustomerId() {
-        return customerId;
+    public String getCustomerPhone() {
+        return customerPhone;
     }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+    public void setCustomerPhone(String customerPhone) {
+        this.customerPhone = customerPhone;
     }
 
 }

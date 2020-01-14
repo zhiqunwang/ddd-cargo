@@ -1,20 +1,27 @@
 package com.deepoove.cargo.infrastructure.db.mapper;
 
+import com.deepoove.cargo.infrastructure.db.dataobject.CargoDO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
-import com.deepoove.cargo.infrastructure.db.dataobject.AppConfig;
-import com.deepoove.cargo.infrastructure.db.dataobject.CargoDO;
+import java.util.List;
 
 @Mapper
 public interface CargoMapper {
+
+    CargoDO select(@Param("id") String id);
+
+    List<CargoDO> selectAll();
+
+    List<CargoDO> selectByCustomer(@Param("phone") String phone);
+
+    void save(CargoDO cargoDO);
     
-//    @Select("SELECT * FROM app_config WHERE name = #{id}")
-//    AppConfig find(@Param("id") String id);
-    
-    
-    @Select("SELECT * FROM cargo WHERE id = #{id}")
-    CargoDO find(@Param("id") String id);
+    void update(CargoDO cargoDO);
+
+    void remove(@Param("id") String id);
+
+    int countByCustomer(@Param("phone") String phone);
+
 
 }

@@ -2,12 +2,14 @@ package com.deepoove.cargo.application.cmd;
 
 import java.util.Date;
 
-import com.deepoove.cargo.domain.aggregate.handlingevent.EventTypeEnum;
-
 public class HandlingEventAddCommand {
 
     private String cargoId;
-    private EventTypeEnum eventType;
+    /**
+     * 0:receive 1:load 2:unload 3:end
+     */
+    private int eventType;
+    
     private Date datetime;
     private String scheduleId;
 
@@ -19,11 +21,11 @@ public class HandlingEventAddCommand {
         this.cargoId = cargoId;
     }
 
-    public EventTypeEnum getEventType() {
+    public int getEventType() {
         return eventType;
     }
 
-    public void setEventType(EventTypeEnum eventType) {
+    public void setEventType(int eventType) {
         this.eventType = eventType;
     }
 

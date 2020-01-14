@@ -1,13 +1,10 @@
 package com.deepoove.cargo.domain.aggregate.cargo;
 
-import java.util.Random;
-
 import com.deepoove.cargo.domain.aggregate.cargo.valueobject.DeliverySpecification;
 
 public class Cargo {
-
     private String id;
-    private String senderId;
+    private String senderPhone;
     private String description;
     private DeliverySpecification delivery;
 
@@ -15,39 +12,59 @@ public class Cargo {
         this.id = id;
     }
 
+    public Cargo() {}
+
     /**
      * Factory method：预订新的货物
-     * 
-     * @param senderId
+     *
+     * @param senderPhone
      * @param description
      * @param delivery
      * @return
      */
-    public static Cargo newCargo(String senderId, String description,
-            DeliverySpecification delivery) {
-        String id = nextCargoId();
+    public static Cargo newCargo(String id, String senderPhone, String description,
+                                 DeliverySpecification delivery) {
         Cargo cargo = new Cargo(id);
-        cargo.senderId = senderId;
+        cargo.senderPhone = senderPhone;
         cargo.description = description;
         cargo.delivery = delivery;
         return cargo;
     }
 
-    /**
-     * 货物物流id生成规则
-     * 
-     * @return
-     */
-    private static String nextCargoId() {
-        return "CARGO-NO-" + (10000 + new Random().nextInt(9999));
-    }
-
     public String id() {
         return id;
     }
-    
+
     public String sender() {
-        return senderId;
+        return senderPhone;
     }
+
+    public String description() {
+        return description;
+    }
+
+    public DeliverySpecification delivery() {
+        return delivery;
+    }
+
+    public void setDelivery(DeliverySpecification delivery) {
+        this.delivery = delivery;
+    }
+
+    /**
+     * 值对象进行更该 TODO
+     * @param destinationLocationCode
+     */
+    public void changeDelivery(String destinationLocationCode) {
+        if (this.delivery
+                .getOriginLocationCode().equals(destinationLocationCode)) { throw new IllegalArgumentException(
+                "destination and origin location cannot be the same."); }
+        this.delivery.setDestinationLocationCode(destinationLocationCode);
+    }
+
+    public void changeSender(String senderPhone) {
+        this.senderPhone = senderPhone;
+    }
+
 
 }

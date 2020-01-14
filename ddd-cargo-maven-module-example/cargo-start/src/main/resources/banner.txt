@@ -1,1 +1,1 @@
-:: domain-model driven design cargo demo by Sayi ::        (http://deepoove.com)
+:: domain-model driven design cargo demo
