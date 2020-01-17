@@ -16,6 +16,7 @@ import com.deepoove.cargo.domain.service.CargoDomainService;
 import com.deepoove.cargo.domain.service.SalersService;
 import com.deepoove.cargo.shared.DomainEventPublisher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -32,7 +33,9 @@ public class CargoCmdServiceImpl implements CargoCmdService {
     private CargoDomainService cargoDomainService;
     @Autowired
     private SalersService salersService;
+
     @Autowired
+    @Qualifier("defaultDomainEventPublisher")
     DomainEventPublisher domainEventPublisher;
 
     @Override
@@ -57,7 +60,8 @@ public class CargoCmdServiceImpl implements CargoCmdService {
 
         // saveCargo
         cargoRepository.save(cargo);
-        
+
+
         // post domain event
         domainEventPublisher.publish(new CargoBookDomainEvent(cargo));
     }

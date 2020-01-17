@@ -1,7 +1,7 @@
 package com.deepoove.cargo.shared;
 
-public interface DomainEventPublisher {
+public interface DomainEventPublisher<T> {
 
-    void publish(Object event);
+    void publish(final T event);
 
 }

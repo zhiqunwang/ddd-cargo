@@ -2,6 +2,9 @@ package com.deepoove.cargo.domain.aggregate.cargo;
 
 import com.deepoove.cargo.domain.aggregate.cargo.valueobject.DeliverySpecification;
 
+/**
+ * 货物【实体】
+ */
 public class Cargo {
     private String id;
     private String senderPhone;

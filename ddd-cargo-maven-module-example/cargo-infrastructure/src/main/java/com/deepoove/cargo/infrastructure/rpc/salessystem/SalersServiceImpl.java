@@ -18,7 +18,7 @@ public class SalersServiceImpl implements SalersService {
 
     @Override
     public boolean mayAccept(int cargoSize, Cargo cargo) {
-        return false;
+        return true;
     }
 
     @Override

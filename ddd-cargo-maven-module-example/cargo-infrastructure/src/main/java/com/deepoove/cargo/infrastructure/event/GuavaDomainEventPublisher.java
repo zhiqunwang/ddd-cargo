@@ -11,13 +11,13 @@ import org.springframework.stereotype.Component;
  * @author: wangzhiqun
  * @version: 1.0
  */
-@Component
-public class GuavaDomainEventPublisher implements DomainEventPublisher {
+@Component("guavaDomainEventPublisher")
+public class GuavaDomainEventPublisher<T> implements DomainEventPublisher<T> {
     @Autowired
     EventBus eventBus;
 
     @Override
-    public void publish(Object event) {
+    public void publish(T event) {
         eventBus.post(event);
     }
 }
